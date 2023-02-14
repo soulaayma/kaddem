@@ -1,11 +1,20 @@
 package com.esprit.alternance.kaddem.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table( name = "Contrat")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Contrat implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -25,7 +34,7 @@ public class Contrat implements Serializable {
 
     private Integer montantContrat;
 
-
-
+    @ManyToOne
+    Etudiant etudiant;
 
 }
